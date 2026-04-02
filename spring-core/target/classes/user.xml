@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="user" class="com.rays.test.UserBean">
+		<property name="name" value="Ram"></property> 
+		<property name="address" value="Indore"></property> 
+	</bean>
+
+	
+	<bean id="user1" class="com.rays.test.UserBean">
+		<constructor-arg value="Shyam"></constructor-arg>
+		<constructor-arg value="Bhopal"></constructor-arg>
+	</bean>
+
+</beans>
