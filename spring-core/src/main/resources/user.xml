@@ -5,13 +5,13 @@
 
 
 	<bean id="user" class="com.rays.test.UserBean">
-		<property name="name" value="Ram"></property> 
+		<property name="name" value="Neha"></property> 
 		<property name="address" value="Indore"></property> 
 	</bean>
 
 	
 	<bean id="user1" class="com.rays.test.UserBean">
-		<constructor-arg value="Shyam"></constructor-arg>
+		<constructor-arg value="Sneha"></constructor-arg>
 		<constructor-arg value="Bhopal"></constructor-arg>
 	</bean>
 
