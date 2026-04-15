@@ -18,5 +18,14 @@
 	</bean>
 
 	<context:component-scan base-package="com.rays" />
+	
+	<!-- Configure Transaction Management -->
+	<tx:annotation-driven />
+
+	<!-- Define Transaction Manager Bean -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
 
 </beans>
