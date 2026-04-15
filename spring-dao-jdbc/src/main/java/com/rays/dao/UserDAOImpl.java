@@ -1,5 +1,7 @@
 package com.rays.dao;
 
+import java.util.List;
+
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -102,6 +104,34 @@ try {
 			return null;
 		
 		}
+	}
+
+	public List<UserDTO> search(UserDTO dto, int pageNo, int pageSize) {
+		
+		StringBuffer sql = new StringBuffer("select * from st_user where 1 = 1");
+		
+		if (dto != null) {
+			
+			if (dto.getFirstName() != null && dto.getFirstName().length() > 0) {
+				sql.append(" and firstName like '" + dto.getFirstName() + "%'");
+			}
+			if (dto.getLastName() != null && dto.getLastName().length() > 0) {
+				sql.append(" and lastName like '" + dto.getLastName() + "%'");
+			}
+			if (dto.getLogin() != null && dto.getLogin().length() > 0) {
+				sql.append(" and login like '" + dto.getLogin() + "%'");
+			}
+			if (dto.getPassword() != null && dto.getPassword().length() > 0) {
+				sql.append(" and password like '" + dto.getPassword() + "%'");
+			}
+			if (pageSize > 0 ) {
+				pageNo = (pageNo - 1)* pageSize;
+				sql.append(" limit " + pageNo + "," + pageSize);
+			}
+		}
+		
+		List<UserDTO> list = jdbcTemplate.query(sql.toString(), new UserMapper());
+		return list;
 	}
 
 }

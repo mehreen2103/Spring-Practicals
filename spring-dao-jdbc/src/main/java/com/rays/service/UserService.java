@@ -1,6 +1,8 @@
 
 package com.rays.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,6 +38,11 @@ public class UserService {
 
 	public UserDTO authenticate(String login, String password) {
 		return dao.authenticate(login, password);
+	}
+	
+	
+	public List<UserDTO> search(UserDTO dto, int pageNo, int pageSize) {
+		return dao.search(dto, pageNo, pageSize);
 	}
 
 
