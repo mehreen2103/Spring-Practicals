@@ -26,8 +26,8 @@ public class TestUserService {
 
 		// test.testFindByPk();
 //		test.testAdd();
-		 test.testUpdate();
-		// test.testSearch();
+//		 test.testUpdate();
+//	 test.testSearch();
 		// test.testAuth();
 	}
 
