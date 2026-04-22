@@ -24,6 +24,7 @@ public class UserDAOImpl implements UserDAOInt {
 	}
 
 	public long nextpk() {
+		
 		String sql = "select max(id) from st_user";
 		Long maxId = jdbcTemplate.queryForObject(sql, Long.class);
 		if (maxId == null) {
@@ -33,6 +34,7 @@ public class UserDAOImpl implements UserDAOInt {
 	}
 
 	public long add(UserDTO dto) {
+		
 		long pk = nextpk();
 		String sql = "insert into st_user values(?, ?, ?, ?, ?)";
 		int i = jdbcTemplate.update(sql, pk, dto.getFirstName(), dto.getLastName(), dto.getLogin(), dto.getPassword());
@@ -40,6 +42,7 @@ public class UserDAOImpl implements UserDAOInt {
 	}
 
 	public void delete(int id) {
+		
 		String sql = "delete from st_user where id = ?";
 		int i = jdbcTemplate.update(sql, id);
 		System.out.println("record deleted = " + i);
@@ -54,7 +57,8 @@ public class UserDAOImpl implements UserDAOInt {
 	}
 
 	public UserDTO findbypk(int id) {
-try {
+		
+        try {
 			
 			String sql = "select * from st_user where id = ?";
 
@@ -90,6 +94,7 @@ try {
 	}
 
 	public UserDTO authenticate(String login, String password) {
+		
 		try {
 			String sql = "select * from st_user where login = ? and password = ?";
 
