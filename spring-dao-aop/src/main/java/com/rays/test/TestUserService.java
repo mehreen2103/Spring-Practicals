@@ -24,11 +24,27 @@ public class TestUserService {
 
 		TestUserService test = (TestUserService) context.getBean("testUserService");
 
-		// test.testFindByPk();
-//		test.testAdd();
+//		 test.testFindByPk();
+		 test.testFindByLogin();
+//		 test.testAdd();
 //		 test.testUpdate();
-//	 test.testSearch();
-		// test.testAuth();
+//	      test.testSearch();
+//		test.testDelete();
+	}
+
+	private void testFindByLogin() {
+		UserDTO dto = service.findByLogin("meh@gmail.com");
+		System.out.print(dto.getId());
+		System.out.print("\t" + dto.getFirstName());
+		System.out.print("\t" + dto.getLastName());
+		System.out.print("\t" + dto.getLogin());
+		System.out.println("\t" + dto.getPassword());
+	}
+
+	private void testDelete() {
+		service.delete(4);
+		System.out.println("Record deleted");
+		
 	}
 
 	public void testSearch() {
@@ -47,9 +63,9 @@ public class TestUserService {
 	public void testAdd() {
 		UserDTO dto = new UserDTO();
 		dto.setId(1);
-		dto.setFirstName("Mehreen");
+		dto.setFirstName("Inayza");
 		dto.setLastName("Ansari");
-		dto.setLogin("meh@gmail.com");
+		dto.setLogin("ina@gmail.com");
 		dto.setPassword("pass1234");
 		long pk = service.add(dto);
 		System.out.println("PK->" + pk);
@@ -58,9 +74,9 @@ public class TestUserService {
 	public void testUpdate() {
 		UserDTO dto = new UserDTO();
 		dto.setId(1);
-		dto.setFirstName("ABC");
-		dto.setLastName("XYZ");
-		dto.setLogin("ABC@gmail.com");
+		dto.setFirstName("Suleman");
+		dto.setLastName("Ansari");
+		dto.setLogin("suley@gmail.com");
 		dto.setPassword("pass1234");
 		service.update(dto);
 		System.out.println("Record updated");
@@ -75,17 +91,6 @@ public class TestUserService {
 		System.out.println("\t" + dto.getPassword());
 	}
 
-	public void testAuth() {
-		UserDTO dto = service.authenticate("ABC@gmail.com", "pass1234");
-		if (dto != null) {
-			System.out.print(dto.getId());
-			System.out.print("\t" + dto.getFirstName());
-			System.out.print("\t" + dto.getLastName());
-			System.out.print("\t" + dto.getLogin());
-			System.out.println("\t" + dto.getPassword());
-		} else {
-			System.out.println("User not exist");
-		}
-	}
+
 
 }
