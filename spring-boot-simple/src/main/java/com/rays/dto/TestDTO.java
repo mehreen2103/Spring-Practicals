@@ -1,0 +1,62 @@
+package com.rays.dto;
+
+import java.util.Date;
+
+public class TestDTO {
+	
+	private Long id ;
+	private String firstName;
+	private String lastName;
+	private String loginId;
+	private String Password;
+	private String dob;
+	
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	public String getLogin() {
+		return loginId;
+	}
+	public void setLogin(String login) {
+		this.loginId = login;
+	}
+	public String getPassword() {
+		return Password;
+	}
+	public void setPassword(String password) {
+		Password = password;
+	}
+	public String getLoginId() {
+		return loginId;
+	}
+	public void setLoginId(String loginId) {
+		this.loginId = loginId;
+	}
+	public String getDob() {
+		return dob;
+	}
+	public void setDob(String dob) {
+		this.dob = dob;
+	}
+	
+	
+	
+	
+
+}
